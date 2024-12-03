@@ -1,13 +1,13 @@
 // The purpose for this program is to guessed the number that the user is thinking of.
 //Author: David Kesselman
-//Last Modified: 10/19/2024
+//Last Modified: 12/2/2024
 
 #include <iostream>
 #include <cstdlib> //For rand and srand
 #include <ctime>   // For the time function
 using namespace std;
 
-const int MAX_TRIES = 10; //Maximum number of attempts allowed
+const int MAX_TRIES = 5; //Maximum number of attempts allowed
 
 // Step 1: Initialize Game Setup
 // Function to output game instructions
@@ -15,18 +15,18 @@ void output_game_instructions()
 {
     cout << "\n\n########################################################" << endl;
     cout << "#    Welcome to the GUESS THE NUMBER game !!!          #" << endl;
-    cout << "#    You have 10 attempts to guess a number            #" << endl;
-    cout << "#    between 100 and 999! Your score will go           #" << endl;
+    cout << "#    You have 5 attempts to guess a number            #" << endl;
+    cout << "#    between 1 and 100! Your score will go           #" << endl;
     cout << "#    up by 1 every time you win, and down by 1 every   #" << endl;
     cout << "#    time you lose. Ready! Set! Go!                    #" << endl;
     cout << "########################################################\n\n" << endl;
 }
 
 // Step 2: Main Game Setup
-// Function to generate a random number between 100 and 999
+// Function to generate a random number between 1 and 100
 int generate_rand_num() 
 {
-    return (rand() % 900) + 100;
+    return (rand() % 100) + 1; // Generate random number from 1 to 100
 }
 
 // Step 3: Setup for a New Game
@@ -38,11 +38,11 @@ int read_and_validate()
     while (true) 
     {
         cin >> guess;
-        if (guess >= 100 && guess <= 999) 
+        if (guess >= 1 && guess <= 100) 
         {
             return guess; //Return Valid Guess
         }
-        cout << "Invalid input. Input must be between 100 and 999.\n Please re-enter: ";
+        cout << "Invalid input. Input must be between 1 and 100.\n Please re-enter: ";
     }
 }
 
